@@ -1,5 +1,6 @@
 class Profile < ApplicationRecord
     belongs_to :user
+    has_one_attached :resume
     validates :name, presence: true
     validates :address, presence: true
     validates :phone_no, presence: true
