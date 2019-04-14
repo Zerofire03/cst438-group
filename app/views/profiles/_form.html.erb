@@ -1,5 +1,6 @@
 <%= form_for @profile, :html => { :class => "form-horizontal profile" } do |f| %>
 
+
   <% if @profile.errors.any? %>
     <div id="error_expl" class="panel panel-danger">
       <div class="panel-heading">
@@ -53,7 +54,7 @@
    <div class="form-group">
     <%= f.label :resume, :class => 'control-label col-lg-2' %>
     <div class="col-lg-10">
-      <%= f.file_field :resume, :class => 'form-control' %>
+      <%= f.file_field :resume, direct_upload: true, :class => 'form-control' %>
     </div>
     <%=f.error_span(:resume) %>
   </div>
