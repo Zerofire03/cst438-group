@@ -15,3 +15,6 @@
 //= require twitter/bootstrap
 //= require turbolinks
 //= require_tree .
+//= require activestorage
+//= require direct_uploads.js
+ 
