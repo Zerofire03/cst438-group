@@ -107,3 +107,765 @@ Processing by WelcomeController#index as HTML
 Completed 200 OK in 42ms (Views: 40.8ms | ActiveRecord: 0.2ms)
 
 
+DEPRECATION WARNING: Leaving `ActiveRecord::ConnectionAdapters::SQLite3Adapter.represent_boolean_as_integer`
+set to false is deprecated. SQLite databases have used 't' and 'f' to serialize
+boolean values and must have old data converted to 1 and 0 (its native boolean
+serialization) before setting this flag to true. Conversion can be accomplished
+by setting up a rake task which runs
+
+  ExampleModel.where("boolean_column = 't'").update_all(boolean_column: 1)
+  ExampleModel.where("boolean_column = 'f'").update_all(boolean_column: 0)
+
+for all models and all boolean columns, after which the flag must be set to
+true by adding the following to your application.rb file:
+
+  Rails.application.config.active_record.sqlite3.represent_boolean_as_integer = true
+ (called from <top (required)> at /home/ec2-user/environment/github/Project/cst438-group/app/models/application_record.rb:1)
+Started GET "/" for 138.23.217.4 at 2019-04-16 18:32:28 +0000
+Cannot render console from 138.23.217.4! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by WelcomeController#index as HTML
+  Rendering welcome/index.html.erb within layouts/application
+  Rendered welcome/index.html.erb within layouts/application (1.2ms)
+  Rendered layouts/_header.html.erb (3.9ms)
+  Rendered layouts/_flash.html.erb (0.3ms)
+Completed 200 OK in 413ms (Views: 407.1ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 138.23.217.4 at 2019-04-16 18:32:30 +0000
+Cannot render console from 138.23.217.4! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by WelcomeController#index as HTML
+  Rendering welcome/index.html.erb within layouts/application
+  Rendered welcome/index.html.erb within layouts/application (0.3ms)
+  Rendered layouts/_header.html.erb (0.6ms)
+  Rendered layouts/_flash.html.erb (0.3ms)
+Completed 200 OK in 37ms (Views: 36.1ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/users/sign_in" for 138.23.217.4 at 2019-04-16 18:32:33 +0000
+Cannot render console from 138.23.217.4! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by Devise::SessionsController#new as HTML
+  Rendering devise/sessions/new.html.erb within layouts/application
+  Rendered devise/shared/_links.html.erb (1.0ms)
+  Rendered devise/sessions/new.html.erb within layouts/application (826.7ms)
+  Rendered layouts/_header.html.erb (0.7ms)
+  Rendered layouts/_flash.html.erb (0.3ms)
+Completed 200 OK in 876ms (Views: 864.3ms | ActiveRecord: 0.6ms)
+
+
+Started POST "/users/sign_in" for 138.23.217.4 at 2019-04-16 18:32:44 +0000
+Cannot render console from 138.23.217.4! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by Devise::SessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"mSjCP5p8NUv1gOhcPFJZRf3UOuKPjtAZklItoYLUUIM/nMVRfct0Wk44y0O/8kAYYR0JhoWtCckUtmkXP59LoA==", "user"=>{"email"=>"zerofire.3@gmail.com", "password"=>"[FILTERED]", "remember_me"=>"0"}, "commit"=>"Log in"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["email", "zerofire.3@gmail.com"], ["LIMIT", 1]]
+Redirected to https://4514a366abb642e79abd4f9c792bc652.vfs.cloud9.us-east-2.amazonaws.com/
+Completed 302 Found in 167ms (ActiveRecord: 0.2ms)
+
+
+Started GET "/" for 138.23.217.4 at 2019-04-16 18:32:44 +0000
+Cannot render console from 138.23.217.4! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by WelcomeController#index as HTML
+  Rendering welcome/index.html.erb within layouts/application
+  Rendered welcome/index.html.erb within layouts/application (0.3ms)
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mProfile Load (0.1ms)[0m  [1m[34mSELECT  "profiles".* FROM "profiles" WHERE "profiles"."user_id" = ? LIMIT ?[0m  [["user_id", 1], ["LIMIT", 1]]
+  Rendered layouts/_header.html.erb (17.4ms)
+  Rendered layouts/_flash.html.erb (0.3ms)
+Completed 200 OK in 56ms (Views: 54.2ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/" for 138.23.217.4 at 2019-04-16 18:34:50 +0000
+Cannot render console from 138.23.217.4! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by WelcomeController#index as HTML
+  Rendering welcome/index.html.erb within layouts/application
+  Rendered welcome/index.html.erb within layouts/application (1.0ms)
+Completed 500 Internal Server Error in 4ms (ActiveRecord: 0.0ms)
+
+
+  
+ActionView::Template::Error (No route matches {:action=>"show", :controller=>"profiles"}, missing required keys: [:id]):
+    1: <h1>Volunteer Skill Share</h1>
+    2: <p>Welcome to the Volunteer Skill Share App</p>
+    3: 
+    4: <%= form_tag(profile_path) do %>
+    5:     Search Term: <%=text_field_tag :search %>
+    6:     <%= submit_tag 'Search' %>
+    7: <% end %>
+  
+app/views/welcome/index.html.erb:4:in `_app_views_welcome_index_html_erb__1107807467874148017_70082973262520'
+Started GET "/" for 138.23.217.4 at 2019-04-16 18:38:26 +0000
+Cannot render console from 138.23.217.4! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by WelcomeController#index as HTML
+  Rendering welcome/index.html.erb within layouts/application
+  Rendered welcome/index.html.erb within layouts/application (0.9ms)
+Completed 500 Internal Server Error in 3ms (ActiveRecord: 0.0ms)
+
+
+  
+ActionView::Template::Error (No route matches {:action=>"show", :controller=>"profiles", :method=>:get}, missing required keys: [:id]):
+    1: <h1>Volunteer Skill Share</h1>
+    2: <p>Welcome to the Volunteer Skill Share App</p>
+    3: 
+    4: <%= form_tag(profile_path method: :get) do %>
+    5:     Search Term: <%=text_field_tag :search_term %>
+    6:     <%= submit_tag 'Search' %>
+    7: <% end %>
+  
+app/views/welcome/index.html.erb:4:in `_app_views_welcome_index_html_erb__1107807467874148017_70082943234520'
+Started GET "/" for 138.23.217.4 at 2019-04-16 18:38:40 +0000
+Cannot render console from 138.23.217.4! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by WelcomeController#index as HTML
+  Rendering welcome/index.html.erb within layouts/application
+  Rendered welcome/index.html.erb within layouts/application (0.8ms)
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mProfile Load (0.1ms)[0m  [1m[34mSELECT  "profiles".* FROM "profiles" WHERE "profiles"."user_id" = ? LIMIT ?[0m  [["user_id", 1], ["LIMIT", 1]]
+  Rendered layouts/_header.html.erb (15.6ms)
+  Rendered layouts/_flash.html.erb (0.3ms)
+Completed 200 OK in 54ms (Views: 51.4ms | ActiveRecord: 1.1ms)
+
+
+Started GET "/" for 138.23.217.4 at 2019-04-16 18:39:23 +0000
+Cannot render console from 138.23.217.4! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by WelcomeController#index as HTML
+  Rendering welcome/index.html.erb within layouts/application
+  Rendered welcome/index.html.erb within layouts/application (0.8ms)
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mProfile Load (0.1ms)[0m  [1m[34mSELECT  "profiles".* FROM "profiles" WHERE "profiles"."user_id" = ? LIMIT ?[0m  [["user_id", 1], ["LIMIT", 1]]
+  Rendered layouts/_header.html.erb (2.6ms)
+  Rendered layouts/_flash.html.erb (0.3ms)
+Completed 200 OK in 39ms (Views: 37.5ms | ActiveRecord: 0.2ms)
+
+
+Started POST "/profiles?method=get" for 138.23.217.4 at 2019-04-16 18:39:28 +0000
+Cannot render console from 138.23.217.4! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by ProfilesController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"ThNptjF4qGZggs176HNqa7SgEjrLfyCnm2+Qem7uNZXij6v+Ry3FuouZH+FSn4gY/tX8e+wtqXoUOzVoJnofTQ==", "search_term"=>"foo", "commit"=>"Search", "method"=>"get"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+Completed 400 Bad Request in 2ms (ActiveRecord: 0.1ms)
+
+
+  
+ActionController::ParameterMissing (param is missing or the value is empty: profile):
+  
+app/controllers/profiles_controller.rb:77:in `profile_params'
+app/controllers/profiles_controller.rb:32:in `create'
+Started GET "/" for 138.23.217.4 at 2019-04-16 18:40:44 +0000
+Cannot render console from 138.23.217.4! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by WelcomeController#index as HTML
+  Rendering welcome/index.html.erb within layouts/application
+  Rendered welcome/index.html.erb within layouts/application (0.9ms)
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mProfile Load (0.1ms)[0m  [1m[34mSELECT  "profiles".* FROM "profiles" WHERE "profiles"."user_id" = ? LIMIT ?[0m  [["user_id", 1], ["LIMIT", 1]]
+  Rendered layouts/_header.html.erb (2.9ms)
+  Rendered layouts/_flash.html.erb (0.3ms)
+Completed 200 OK in 42ms (Views: 40.8ms | ActiveRecord: 0.2ms)
+
+
+Started POST "/profiles?method=get" for 138.23.217.4 at 2019-04-16 18:40:49 +0000
+Cannot render console from 138.23.217.4! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by ProfilesController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"3QQ4ACyt+/Q6vMBktLTIu/Ej8Ha1Fy84B3hNp2w5ksFxmPpIWviWKNGnEv4OWCrIu1YeN5JFpuWILOi1JK24GQ==", "search_term"=>"foo", "method"=>"get"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+Completed 400 Bad Request in 2ms (ActiveRecord: 0.1ms)
+
+
+  
+ActionController::ParameterMissing (param is missing or the value is empty: profile):
+  
+app/controllers/profiles_controller.rb:77:in `profile_params'
+app/controllers/profiles_controller.rb:32:in `create'
+Started POST "/profiles?method=get" for 138.23.217.4 at 2019-04-16 18:42:07 +0000
+Cannot render console from 138.23.217.4! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by ProfilesController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"3QQ4ACyt+/Q6vMBktLTIu/Ej8Ha1Fy84B3hNp2w5ksFxmPpIWviWKNGnEv4OWCrIu1YeN5JFpuWILOi1JK24GQ==", "search_term"=>"foo", "method"=>"get"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+Completed 400 Bad Request in 10ms (ActiveRecord: 0.7ms)
+
+
+  
+ActionController::ParameterMissing (param is missing or the value is empty: profile):
+  
+app/controllers/profiles_controller.rb:77:in `profile_params'
+app/controllers/profiles_controller.rb:32:in `create'
+Started GET "/" for 138.23.217.4 at 2019-04-16 18:42:10 +0000
+Cannot render console from 138.23.217.4! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by WelcomeController#index as HTML
+  Rendering welcome/index.html.erb within layouts/application
+  Rendered welcome/index.html.erb within layouts/application (0.8ms)
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mProfile Load (0.1ms)[0m  [1m[34mSELECT  "profiles".* FROM "profiles" WHERE "profiles"."user_id" = ? LIMIT ?[0m  [["user_id", 1], ["LIMIT", 1]]
+  Rendered layouts/_header.html.erb (7.1ms)
+  Rendered layouts/_flash.html.erb (0.3ms)
+Completed 200 OK in 46ms (Views: 44.3ms | ActiveRecord: 0.5ms)
+
+
+Started POST "/profiles?method=get" for 138.23.217.4 at 2019-04-16 18:42:15 +0000
+Cannot render console from 138.23.217.4! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by ProfilesController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"ph78W/i4WL8rPjS11W85moweWg3r9UpPpHEiuFSbEAMKgj4Tju01Y8Al5i9vg9vpxmu0TMynw5IrJYeqHA862w==", "search_term"=>"foo", "method"=>"get"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+Completed 400 Bad Request in 2ms (ActiveRecord: 0.1ms)
+
+
+  
+ActionController::ParameterMissing (param is missing or the value is empty: profile):
+  
+app/controllers/profiles_controller.rb:77:in `profile_params'
+app/controllers/profiles_controller.rb:32:in `create'
+Started GET "/" for 138.23.217.4 at 2019-04-16 18:43:08 +0000
+Cannot render console from 138.23.217.4! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by WelcomeController#index as HTML
+  Rendering welcome/index.html.erb within layouts/application
+  Rendered welcome/index.html.erb within layouts/application (0.9ms)
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mProfile Load (0.1ms)[0m  [1m[34mSELECT  "profiles".* FROM "profiles" WHERE "profiles"."user_id" = ? LIMIT ?[0m  [["user_id", 1], ["LIMIT", 1]]
+  Rendered layouts/_header.html.erb (14.7ms)
+  Rendered layouts/_flash.html.erb (0.3ms)
+Completed 200 OK in 52ms (Views: 50.2ms | ActiveRecord: 1.1ms)
+
+
+Started GET "/profiles/new" for 138.23.217.4 at 2019-04-16 18:43:27 +0000
+Cannot render console from 138.23.217.4! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by ProfilesController#new as HTML
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mProfile Load (0.1ms)[0m  [1m[34mSELECT  "profiles".* FROM "profiles" WHERE "profiles"."user_id" = ? LIMIT ?[0m  [["user_id", 1], ["LIMIT", 1]]
+  Rendering profiles/new.html.erb within layouts/application
+  Rendered profiles/_form.html.erb (4.7ms)
+  Rendered profiles/new.html.erb within layouts/application (6.8ms)
+  Rendered layouts/_header.html.erb (0.8ms)
+  Rendered layouts/_flash.html.erb (0.3ms)
+Completed 200 OK in 74ms (Views: 61.0ms | ActiveRecord: 0.4ms)
+
+
+Started POST "/profiles" for 138.23.217.4 at 2019-04-16 18:43:41 +0000
+Cannot render console from 138.23.217.4! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by ProfilesController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"psQcLuhYEZToGoqTkVzc1MPrAEyZ/reTz9IbHNPouY2IepVsJHvmcWVVdPxvilfUQymktytsyG5GMLgBpEPgyQ==", "profile"=>{"name"=>"Foo Foo", "address"=>"123 Foo St", "phone_no"=>"123-456-7890", "interest"=>"Foo", "skills"=>"Foo"}, "commit"=>"Create Profile"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mProfile Load (0.1ms)[0m  [1m[34mSELECT  "profiles".* FROM "profiles" WHERE "profiles"."user_id" = ? LIMIT ?[0m  [["user_id", 1], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mProfile Create (0.4ms)[0m  [1m[32mINSERT INTO "profiles" ("name", "address", "phone_no", "interest", "skills", "created_at", "updated_at", "user_id") VALUES (?, ?, ?, ?, ?, ?, ?, ?)[0m  [["name", "Foo Foo"], ["address", "123 Foo St"], ["phone_no", "123-456-7890"], ["interest", "Foo"], ["skills", "Foo"], ["created_at", "2019-04-16 18:43:41.654010"], ["updated_at", "2019-04-16 18:43:41.654010"], ["user_id", 1]]
+  [1m[35m (5.2ms)[0m  [1m[36mcommit transaction[0m
+Redirected to https://4514a366abb642e79abd4f9c792bc652.vfs.cloud9.us-east-2.amazonaws.com/profiles/3
+Completed 302 Found in 13ms (ActiveRecord: 5.8ms)
+
+
+Started GET "/profiles/3" for 138.23.217.4 at 2019-04-16 18:43:41 +0000
+Cannot render console from 138.23.217.4! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by ProfilesController#show as HTML
+  Parameters: {"id"=>"3"}
+  [1m[36mProfile Load (0.2ms)[0m  [1m[34mSELECT  "profiles".* FROM "profiles" WHERE "profiles"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  Rendering profiles/show.html.erb within layouts/application
+  [1m[36mActiveStorage::Attachment Load (0.2ms)[0m  [1m[34mSELECT  "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = ? AND "active_storage_attachments"."record_type" = ? AND "active_storage_attachments"."name" = ? LIMIT ?[0m  [["record_id", 3], ["record_type", "Profile"], ["name", "resume"], ["LIMIT", 1]]
+  Rendered profiles/show.html.erb within layouts/application (10.1ms)
+Completed 500 Internal Server Error in 15ms (ActiveRecord: 0.6ms)
+
+
+  
+ActionView::Template::Error (filename delegated to attachment, but attachment is nil):
+    15:   <dt><strong><%= model_class.human_attribute_name(:skills) %>:</strong></dt>
+    16:   <dd><%= @profile.skills %></dd>
+    17:   <dt><strong><%= model_class.human_attribute_name(:resume) %>:</strong></dt>
+    18:   <dd><%= link_to @profile.resume.filename, @profile.resume, target: :blank %></dd>
+    19: </dl>
+    20: 
+    21: <%= link_to t('.back', :default => t("helpers.links.back")),
+  
+app/views/profiles/show.html.erb:18:in `_app_views_profiles_show_html_erb___3409349275266983183_70082860791280'
+Started POST "/rails/active_storage/direct_uploads" for 138.23.217.4 at 2019-04-16 18:44:00 +0000
+Cannot render console from 138.23.217.4! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by ActiveStorage::DirectUploadsController#create as JSON
+  Parameters: {"blob"=>{"filename"=>"documents20190404-1-18e4qxt.pdf", "content_type"=>"application/pdf", "byte_size"=>106341, "checksum"=>"ipEVaLQFq9MPqnxuBael5A=="}, "direct_upload"=>{"blob"=>{"filename"=>"documents20190404-1-18e4qxt.pdf", "content_type"=>"application/pdf", "byte_size"=>106341, "checksum"=>"ipEVaLQFq9MPqnxuBael5A=="}}}
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mActiveStorage::Blob Create (0.4ms)[0m  [1m[32mINSERT INTO "active_storage_blobs" ("key", "filename", "content_type", "byte_size", "checksum", "created_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["key", "88QG9K3WBBJLqVkiJcgARBkw"], ["filename", "documents20190404-1-18e4qxt.pdf"], ["content_type", "application/pdf"], ["byte_size", 106341], ["checksum", "ipEVaLQFq9MPqnxuBael5A=="], ["created_at", "2019-04-16 18:44:01.009489"]]
+  [1m[35m (5.0ms)[0m  [1m[36mcommit transaction[0m
+[36m  Disk Storage (0.4ms) [0m[34mGenerated URL for file at key: 88QG9K3WBBJLqVkiJcgARBkw (https://4514a366abb642e79abd4f9c792bc652.vfs.cloud9.us-east-2.amazonaws.com/rails/active_storage/disk/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaDdDVG9JYTJWNVNTSWRPRGhSUnpsTE0xZENRa3BNY1ZacmFVcGpaMEZTUW10M0Jqb0dSVlE2RVdOdmJuUmxiblJmZEhsd1pVa2lGR0Z3Y0d4cFkyRjBhVzl1TDNCa1pnWTdCbFE2RTJOdmJuUmxiblJmYkdWdVozUm9hUU5sbndFNkRXTm9aV05yYzNWdFNTSWRhWEJGVm1GTVVVWnhPVTFRY1c1NGRVSmhaV3cxUVQwOUJqc0dWQT09IiwiZXhwIjoiMjAxOS0wNC0xNlQxODo0OTowMS4wMTlaIiwicHVyIjoiYmxvYl90b2tlbiJ9fQ==--3ea53f897f1746b8a7fb81040cce6714d8d0756b)[0m
+Completed 200 OK in 38ms (Views: 0.4ms | ActiveRecord: 6.0ms)
+
+
+Started PUT "/rails/active_storage/disk/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaDdDVG9JYTJWNVNTSWRPRGhSUnpsTE0xZENRa3BNY1ZacmFVcGpaMEZTUW10M0Jqb0dSVlE2RVdOdmJuUmxiblJmZEhsd1pVa2lGR0Z3Y0d4cFkyRjBhVzl1TDNCa1pnWTdCbFE2RTJOdmJuUmxiblJmYkdWdVozUm9hUU5sbndFNkRXTm9aV05yYzNWdFNTSWRhWEJGVm1GTVVVWnhPVTFRY1c1NGRVSmhaV3cxUVQwOUJqc0dWQT09IiwiZXhwIjoiMjAxOS0wNC0xNlQxODo0OTowMS4wMTlaIiwicHVyIjoiYmxvYl90b2tlbiJ9fQ==--3ea53f897f1746b8a7fb81040cce6714d8d0756b" for 138.23.217.4 at 2019-04-16 18:44:01 +0000
+Cannot render console from 138.23.217.4! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by ActiveStorage::DiskController#update as */*
+  Parameters: {"encoded_token"=>"eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaDdDVG9JYTJWNVNTSWRPRGhSUnpsTE0xZENRa3BNY1ZacmFVcGpaMEZTUW10M0Jqb0dSVlE2RVdOdmJuUmxiblJmZEhsd1pVa2lGR0Z3Y0d4cFkyRjBhVzl1TDNCa1pnWTdCbFE2RTJOdmJuUmxiblJmYkdWdVozUm9hUU5sbndFNkRXTm9aV05yYzNWdFNTSWRhWEJGVm1GTVVVWnhPVTFRY1c1NGRVSmhaV3cxUVQwOUJqc0dWQT09IiwiZXhwIjoiMjAxOS0wNC0xNlQxODo0OTowMS4wMTlaIiwicHVyIjoiYmxvYl90b2tlbiJ9fQ==--3ea53f897f1746b8a7fb81040cce6714d8d0756b"}
+[36m  Disk Storage (1.5ms) [0m[32mUploaded file to key: 88QG9K3WBBJLqVkiJcgARBkw (checksum: ipEVaLQFq9MPqnxuBael5A==)[0m
+Completed 204 No Content in 3ms (ActiveRecord: 0.0ms)
+
+
+Started POST "/profiles" for 138.23.217.4 at 2019-04-16 18:44:01 +0000
+Cannot render console from 138.23.217.4! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by ProfilesController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"UGrlUlKjuLUe++FZOMp8qODOBs8F+JBlgX+RtjoFvwn89icaJPbVafXgM8OCJp7bqrvojiKqGbgOKzSkcpGV0Q==", "profile"=>{"name"=>"Foo Foo", "address"=>"123 Foo St", "phone_no"=>"123-456-7890", "interest"=>"Foo", "skills"=>"Foo", "resume"=>"eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaHBEQT09IiwiZXhwIjpudWxsLCJwdXIiOiJibG9iX2lkIn19--d7a7a0019414e9ef7111b6a059845357058efe29"}, "commit"=>"Create Profile"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mActiveStorage::Blob Load (0.1ms)[0m  [1m[34mSELECT  "active_storage_blobs".* FROM "active_storage_blobs" WHERE "active_storage_blobs"."id" = ? LIMIT ?[0m  [["id", 7], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mProfile Load (0.1ms)[0m  [1m[34mSELECT  "profiles".* FROM "profiles" WHERE "profiles"."user_id" = ? LIMIT ?[0m  [["user_id", 1], ["LIMIT", 1]]
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mProfile Destroy (0.3ms)[0m  [1m[31mDELETE FROM "profiles" WHERE "profiles"."id" = ?[0m  [["id", 3]]
+  [1m[35m (4.0ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mActiveStorage::Attachment Load (0.1ms)[0m  [1m[34mSELECT  "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = ? AND "active_storage_attachments"."record_type" = ? AND "active_storage_attachments"."name" = ? LIMIT ?[0m  [["record_id", 3], ["record_type", "Profile"], ["name", "resume"], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mProfile Create (0.2ms)[0m  [1m[32mINSERT INTO "profiles" ("name", "address", "phone_no", "interest", "skills", "created_at", "updated_at", "user_id") VALUES (?, ?, ?, ?, ?, ?, ?, ?)[0m  [["name", "Foo Foo"], ["address", "123 Foo St"], ["phone_no", "123-456-7890"], ["interest", "Foo"], ["skills", "Foo"], ["created_at", "2019-04-16 18:44:01.473492"], ["updated_at", "2019-04-16 18:44:01.473492"], ["user_id", 1]]
+  [1m[36mActiveStorage::Attachment Create (0.3ms)[0m  [1m[32mINSERT INTO "active_storage_attachments" ("name", "record_type", "record_id", "blob_id", "created_at") VALUES (?, ?, ?, ?, ?)[0m  [["name", "resume"], ["record_type", "Profile"], ["record_id", 4], ["blob_id", 7], ["created_at", "2019-04-16 18:44:01.475331"]]
+  [1m[36mProfile Update (0.5ms)[0m  [1m[33mUPDATE "profiles" SET "updated_at" = ? WHERE "profiles"."id" = ?[0m  [["updated_at", "2019-04-16 18:44:01.476515"], ["id", 4]]
+  [1m[35m (5.0ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mActiveStorage::Blob Update (0.3ms)[0m  [1m[33mUPDATE "active_storage_blobs" SET "metadata" = ? WHERE "active_storage_blobs"."id" = ?[0m  [["metadata", "{\"identified\":true}"], ["id", 7]]
+  [1m[35m (5.5ms)[0m  [1m[36mcommit transaction[0m
+[ActiveJob] Enqueued ActiveStorage::AnalyzeJob (Job ID: 42351120-4f6d-4ee1-886d-bf846e0eb0a5) to Async(default) with arguments: #<GlobalID:0x00007f7aee581180 @uri=#<URI::GID gid://cst438-group/ActiveStorage::Blob/7>>
+Redirected to https://4514a366abb642e79abd4f9c792bc652.vfs.cloud9.us-east-2.amazonaws.com/profiles/4
+Completed 302 Found in 79ms (ActiveRecord: 17.1ms)
+
+
+  [1m[36mActiveStorage::Blob Load (0.1ms)[0m  [1m[34mSELECT  "active_storage_blobs".* FROM "active_storage_blobs" WHERE "active_storage_blobs"."id" = ? LIMIT ?[0m  [["id", 7], ["LIMIT", 1]]
+[ActiveJob] [ActiveStorage::AnalyzeJob] [42351120-4f6d-4ee1-886d-bf846e0eb0a5] Performing ActiveStorage::AnalyzeJob (Job ID: 42351120-4f6d-4ee1-886d-bf846e0eb0a5) from Async(default) with arguments: #<GlobalID:0x00007f7aee5a0170 @uri=#<URI::GID gid://cst438-group/ActiveStorage::Blob/7>>
+[ActiveJob] [ActiveStorage::AnalyzeJob] [42351120-4f6d-4ee1-886d-bf846e0eb0a5]   [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+[ActiveJob] [ActiveStorage::AnalyzeJob] [42351120-4f6d-4ee1-886d-bf846e0eb0a5]   [1m[36mActiveStorage::Blob Update (0.3ms)[0m  [1m[33mUPDATE "active_storage_blobs" SET "metadata" = ? WHERE "active_storage_blobs"."id" = ?[0m  [["metadata", "{\"identified\":true,\"analyzed\":true}"], ["id", 7]]
+[ActiveJob] [ActiveStorage::AnalyzeJob] [42351120-4f6d-4ee1-886d-bf846e0eb0a5]   [1m[35m (4.6ms)[0m  [1m[36mcommit transaction[0m
+[ActiveJob] [ActiveStorage::AnalyzeJob] [42351120-4f6d-4ee1-886d-bf846e0eb0a5] Performed ActiveStorage::AnalyzeJob (Job ID: 42351120-4f6d-4ee1-886d-bf846e0eb0a5) from Async(default) in 7.96ms
+Started GET "/profiles/4" for 138.23.217.4 at 2019-04-16 18:44:01 +0000
+Cannot render console from 138.23.217.4! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by ProfilesController#show as HTML
+  Parameters: {"id"=>"4"}
+  [1m[36mProfile Load (0.1ms)[0m  [1m[34mSELECT  "profiles".* FROM "profiles" WHERE "profiles"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  Rendering profiles/show.html.erb within layouts/application
+  [1m[36mActiveStorage::Attachment Load (0.1ms)[0m  [1m[34mSELECT  "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = ? AND "active_storage_attachments"."record_type" = ? AND "active_storage_attachments"."name" = ? LIMIT ?[0m  [["record_id", 4], ["record_type", "Profile"], ["name", "resume"], ["LIMIT", 1]]
+  [1m[36mActiveStorage::Blob Load (0.1ms)[0m  [1m[34mSELECT  "active_storage_blobs".* FROM "active_storage_blobs" WHERE "active_storage_blobs"."id" = ? LIMIT ?[0m  [["id", 7], ["LIMIT", 1]]
+  Rendered profiles/show.html.erb within layouts/application (32.6ms)
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mProfile Load (0.1ms)[0m  [1m[34mSELECT  "profiles".* FROM "profiles" WHERE "profiles"."user_id" = ? LIMIT ?[0m  [["user_id", 1], ["LIMIT", 1]]
+  Rendered layouts/_header.html.erb (3.2ms)
+  Rendered layouts/_flash.html.erb (0.3ms)
+Completed 200 OK in 75ms (Views: 72.8ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/" for 138.23.217.4 at 2019-04-16 18:44:04 +0000
+Cannot render console from 138.23.217.4! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by WelcomeController#index as HTML
+  Rendering welcome/index.html.erb within layouts/application
+  Rendered welcome/index.html.erb within layouts/application (1.0ms)
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mProfile Load (0.1ms)[0m  [1m[34mSELECT  "profiles".* FROM "profiles" WHERE "profiles"."user_id" = ? LIMIT ?[0m  [["user_id", 1], ["LIMIT", 1]]
+  Rendered layouts/_header.html.erb (3.2ms)
+  Rendered layouts/_flash.html.erb (0.3ms)
+Completed 200 OK in 45ms (Views: 43.5ms | ActiveRecord: 0.2ms)
+
+
+Started POST "/profiles?method=get" for 138.23.217.4 at 2019-04-16 18:44:08 +0000
+Cannot render console from 138.23.217.4! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by ProfilesController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"U12w8IWDgNRThjpZhkEAUrjyxxFLJ4qdDDJIZXiVIDJ94zmySaB3Md7JxDZ4l4tSODBj6vm19WCF0Ot4Dz55dg==", "search_term"=>"Foo", "method"=>"get"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+Completed 400 Bad Request in 2ms (ActiveRecord: 0.1ms)
+
+
+  
+ActionController::ParameterMissing (param is missing or the value is empty: profile):
+  
+app/controllers/profiles_controller.rb:77:in `profile_params'
+app/controllers/profiles_controller.rb:32:in `create'
+Started GET "/" for 138.23.217.4 at 2019-04-16 18:47:19 +0000
+Cannot render console from 138.23.217.4! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by WelcomeController#index as HTML
+  Rendering welcome/index.html.erb within layouts/application
+  Rendered welcome/index.html.erb within layouts/application (1.3ms)
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mProfile Load (0.1ms)[0m  [1m[34mSELECT  "profiles".* FROM "profiles" WHERE "profiles"."user_id" = ? LIMIT ?[0m  [["user_id", 1], ["LIMIT", 1]]
+  Rendered layouts/_header.html.erb (3.3ms)
+  Rendered layouts/_flash.html.erb (0.4ms)
+Completed 200 OK in 59ms (Views: 57.4ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/profiles?utf8=%E2%9C%93&search_term=foo" for 138.23.217.4 at 2019-04-16 18:47:24 +0000
+Cannot render console from 138.23.217.4! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by ProfilesController#index as HTML
+  Parameters: {"utf8"=>"✓", "search_term"=>"foo"}
+  Rendering profiles/index.html.erb within layouts/application
+  [1m[36mProfile Load (0.2ms)[0m  [1m[34mSELECT "profiles".* FROM "profiles" WHERE (interest LIKE'%foo%')[0m
+  Rendered profiles/index.html.erb within layouts/application (4.3ms)
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mProfile Load (0.1ms)[0m  [1m[34mSELECT  "profiles".* FROM "profiles" WHERE "profiles"."user_id" = ? LIMIT ?[0m  [["user_id", 1], ["LIMIT", 1]]
+  Rendered layouts/_header.html.erb (2.9ms)
+  Rendered layouts/_flash.html.erb (0.3ms)
+Completed 200 OK in 44ms (Views: 42.8ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/" for 138.23.217.4 at 2019-04-16 18:47:31 +0000
+Cannot render console from 138.23.217.4! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by WelcomeController#index as HTML
+  Rendering welcome/index.html.erb within layouts/application
+  Rendered welcome/index.html.erb within layouts/application (0.7ms)
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mProfile Load (0.1ms)[0m  [1m[34mSELECT  "profiles".* FROM "profiles" WHERE "profiles"."user_id" = ? LIMIT ?[0m  [["user_id", 1], ["LIMIT", 1]]
+  Rendered layouts/_header.html.erb (2.9ms)
+  Rendered layouts/_flash.html.erb (0.3ms)
+Completed 200 OK in 41ms (Views: 39.5ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/profiles?utf8=%E2%9C%93&search_term=george" for 138.23.217.4 at 2019-04-16 18:48:19 +0000
+Cannot render console from 138.23.217.4! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by ProfilesController#index as HTML
+  Parameters: {"utf8"=>"✓", "search_term"=>"george"}
+  Rendering profiles/index.html.erb within layouts/application
+  [1m[36mProfile Load (0.2ms)[0m  [1m[34mSELECT "profiles".* FROM "profiles" WHERE (interest LIKE'%george%')[0m
+  Rendered profiles/index.html.erb within layouts/application (3.3ms)
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mProfile Load (0.1ms)[0m  [1m[34mSELECT  "profiles".* FROM "profiles" WHERE "profiles"."user_id" = ? LIMIT ?[0m  [["user_id", 1], ["LIMIT", 1]]
+  Rendered layouts/_header.html.erb (3.0ms)
+  Rendered layouts/_flash.html.erb (0.3ms)
+Completed 200 OK in 43ms (Views: 41.3ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/" for 138.23.217.4 at 2019-04-16 18:48:21 +0000
+Cannot render console from 138.23.217.4! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by WelcomeController#index as HTML
+  Rendering welcome/index.html.erb within layouts/application
+  Rendered welcome/index.html.erb within layouts/application (0.7ms)
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mProfile Load (0.1ms)[0m  [1m[34mSELECT  "profiles".* FROM "profiles" WHERE "profiles"."user_id" = ? LIMIT ?[0m  [["user_id", 1], ["LIMIT", 1]]
+  Rendered layouts/_header.html.erb (3.1ms)
+  Rendered layouts/_flash.html.erb (0.3ms)
+Completed 200 OK in 57ms (Views: 55.9ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/profiles/4" for 138.23.217.4 at 2019-04-16 18:49:01 +0000
+Cannot render console from 138.23.217.4! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by ProfilesController#show as HTML
+  Parameters: {"id"=>"4"}
+  [1m[36mProfile Load (0.1ms)[0m  [1m[34mSELECT  "profiles".* FROM "profiles" WHERE "profiles"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  Rendering profiles/show.html.erb within layouts/application
+  [1m[36mActiveStorage::Attachment Load (0.1ms)[0m  [1m[34mSELECT  "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = ? AND "active_storage_attachments"."record_type" = ? AND "active_storage_attachments"."name" = ? LIMIT ?[0m  [["record_id", 4], ["record_type", "Profile"], ["name", "resume"], ["LIMIT", 1]]
+  [1m[36mActiveStorage::Blob Load (0.1ms)[0m  [1m[34mSELECT  "active_storage_blobs".* FROM "active_storage_blobs" WHERE "active_storage_blobs"."id" = ? LIMIT ?[0m  [["id", 7], ["LIMIT", 1]]
+  Rendered profiles/show.html.erb within layouts/application (5.1ms)
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mProfile Load (0.1ms)[0m  [1m[34mSELECT  "profiles".* FROM "profiles" WHERE "profiles"."user_id" = ? LIMIT ?[0m  [["user_id", 1], ["LIMIT", 1]]
+  Rendered layouts/_header.html.erb (3.1ms)
+  Rendered layouts/_flash.html.erb (0.3ms)
+Completed 200 OK in 47ms (Views: 45.6ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/profiles/4/edit" for 138.23.217.4 at 2019-04-16 18:49:03 +0000
+Cannot render console from 138.23.217.4! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by ProfilesController#edit as HTML
+  Parameters: {"id"=>"4"}
+  [1m[36mProfile Load (0.1ms)[0m  [1m[34mSELECT  "profiles".* FROM "profiles" WHERE "profiles"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  Rendering profiles/edit.html.erb within layouts/application
+  Rendered profiles/_form.html.erb (3.4ms)
+  Rendered profiles/edit.html.erb within layouts/application (4.9ms)
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mProfile Load (0.1ms)[0m  [1m[34mSELECT  "profiles".* FROM "profiles" WHERE "profiles"."user_id" = ? LIMIT ?[0m  [["user_id", 1], ["LIMIT", 1]]
+  Rendered layouts/_header.html.erb (2.9ms)
+  Rendered layouts/_flash.html.erb (0.3ms)
+Completed 200 OK in 46ms (Views: 43.7ms | ActiveRecord: 0.3ms)
+
+
+Started PATCH "/profiles/4" for 138.23.217.4 at 2019-04-16 18:49:17 +0000
+Cannot render console from 138.23.217.4! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by ProfilesController#update as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"aEbUlkcpM4Z8mOsGiYdsBb3TshioSCrSala5Ajd102u8lF39PLUd6qs/pAvW9owcUDinJQg3H8SnIiJmyA1QPg==", "profile"=>{"name"=>"Foo Foo", "address"=>"123 Foo St", "phone_no"=>"123-456-7890", "interest"=>"Interest", "skills"=>"Skills"}, "commit"=>"Update Profile", "id"=>"4"}
+  [1m[36mProfile Load (0.1ms)[0m  [1m[34mSELECT  "profiles".* FROM "profiles" WHERE "profiles"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mProfile Update (0.3ms)[0m  [1m[33mUPDATE "profiles" SET "interest" = ?, "skills" = ?, "updated_at" = ? WHERE "profiles"."id" = ?[0m  [["interest", "Interest"], ["skills", "Skills"], ["updated_at", "2019-04-16 18:49:17.092857"], ["id", 4]]
+  [1m[35m (4.5ms)[0m  [1m[36mcommit transaction[0m
+Redirected to https://4514a366abb642e79abd4f9c792bc652.vfs.cloud9.us-east-2.amazonaws.com/profiles/4
+Completed 302 Found in 12ms (ActiveRecord: 5.1ms)
+
+
+Started GET "/profiles/4" for 138.23.217.4 at 2019-04-16 18:49:17 +0000
+Cannot render console from 138.23.217.4! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by ProfilesController#show as HTML
+  Parameters: {"id"=>"4"}
+  [1m[36mProfile Load (0.1ms)[0m  [1m[34mSELECT  "profiles".* FROM "profiles" WHERE "profiles"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  Rendering profiles/show.html.erb within layouts/application
+  [1m[36mActiveStorage::Attachment Load (0.1ms)[0m  [1m[34mSELECT  "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = ? AND "active_storage_attachments"."record_type" = ? AND "active_storage_attachments"."name" = ? LIMIT ?[0m  [["record_id", 4], ["record_type", "Profile"], ["name", "resume"], ["LIMIT", 1]]
+  [1m[36mActiveStorage::Blob Load (0.1ms)[0m  [1m[34mSELECT  "active_storage_blobs".* FROM "active_storage_blobs" WHERE "active_storage_blobs"."id" = ? LIMIT ?[0m  [["id", 7], ["LIMIT", 1]]
+  Rendered profiles/show.html.erb within layouts/application (4.9ms)
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mProfile Load (0.1ms)[0m  [1m[34mSELECT  "profiles".* FROM "profiles" WHERE "profiles"."user_id" = ? LIMIT ?[0m  [["user_id", 1], ["LIMIT", 1]]
+  Rendered layouts/_header.html.erb (2.5ms)
+  Rendered layouts/_flash.html.erb (0.4ms)
+Completed 200 OK in 45ms (Views: 43.1ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/" for 138.23.217.4 at 2019-04-16 18:49:21 +0000
+Cannot render console from 138.23.217.4! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by WelcomeController#index as HTML
+  Rendering welcome/index.html.erb within layouts/application
+  Rendered welcome/index.html.erb within layouts/application (0.8ms)
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mProfile Load (0.1ms)[0m  [1m[34mSELECT  "profiles".* FROM "profiles" WHERE "profiles"."user_id" = ? LIMIT ?[0m  [["user_id", 1], ["LIMIT", 1]]
+  Rendered layouts/_header.html.erb (2.9ms)
+  Rendered layouts/_flash.html.erb (0.3ms)
+Completed 200 OK in 55ms (Views: 54.2ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/profiles?utf8=%E2%9C%93&search_term=Interest" for 138.23.217.4 at 2019-04-16 18:49:25 +0000
+Cannot render console from 138.23.217.4! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by ProfilesController#index as HTML
+  Parameters: {"utf8"=>"✓", "search_term"=>"Interest"}
+  Rendering profiles/index.html.erb within layouts/application
+  [1m[36mProfile Load (0.2ms)[0m  [1m[34mSELECT "profiles".* FROM "profiles" WHERE (interest LIKE'%Interest%')[0m
+  Rendered profiles/index.html.erb within layouts/application (4.1ms)
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mProfile Load (0.1ms)[0m  [1m[34mSELECT  "profiles".* FROM "profiles" WHERE "profiles"."user_id" = ? LIMIT ?[0m  [["user_id", 1], ["LIMIT", 1]]
+  Rendered layouts/_header.html.erb (2.8ms)
+  Rendered layouts/_flash.html.erb (0.3ms)
+Completed 200 OK in 45ms (Views: 43.2ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/" for 138.23.217.4 at 2019-04-16 18:49:34 +0000
+Cannot render console from 138.23.217.4! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by WelcomeController#index as HTML
+  Rendering welcome/index.html.erb within layouts/application
+  Rendered welcome/index.html.erb within layouts/application (0.7ms)
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mProfile Load (0.1ms)[0m  [1m[34mSELECT  "profiles".* FROM "profiles" WHERE "profiles"."user_id" = ? LIMIT ?[0m  [["user_id", 1], ["LIMIT", 1]]
+  Rendered layouts/_header.html.erb (2.6ms)
+  Rendered layouts/_flash.html.erb (0.3ms)
+Completed 200 OK in 39ms (Views: 38.0ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/profiles?utf8=%E2%9C%93&search_term=skill" for 138.23.217.4 at 2019-04-16 18:51:21 +0000
+Cannot render console from 138.23.217.4! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by ProfilesController#index as HTML
+  Parameters: {"utf8"=>"✓", "search_term"=>"skill"}
+Completed 500 Internal Server Error in 3ms (ActiveRecord: 0.0ms)
+
+
+  
+ActiveRecord::PreparedStatementInvalid (wrong number of bind variables (1 for 2) in: interest LIKE ? or skills LIKE ?):
+  
+app/controllers/profiles_controller.rb:9:in `index'
+Started GET "/profiles?utf8=%E2%9C%93&search_term=skill" for 138.23.217.4 at 2019-04-16 18:51:44 +0000
+Cannot render console from 138.23.217.4! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by ProfilesController#index as HTML
+  Parameters: {"utf8"=>"✓", "search_term"=>"skill"}
+Completed 500 Internal Server Error in 3ms (ActiveRecord: 0.0ms)
+
+
+  
+ActiveRecord::PreparedStatementInvalid (wrong number of bind variables (1 for 2) in: interest LIKE ? or skills LIKE ?):
+  
+app/controllers/profiles_controller.rb:9:in `index'
+Started GET "/profiles?utf8=%E2%9C%93&search_term=skill" for 138.23.217.4 at 2019-04-16 18:52:34 +0000
+Cannot render console from 138.23.217.4! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by ProfilesController#index as HTML
+  Parameters: {"utf8"=>"✓", "search_term"=>"skill"}
+Completed 500 Internal Server Error in 3ms (ActiveRecord: 0.0ms)
+
+
+  
+ActiveRecord::PreparedStatementInvalid (wrong number of bind variables (1 for 2) in: interest LIKE ? or skills LIKE ?):
+  
+app/controllers/profiles_controller.rb:9:in `index'
+Started GET "/" for 138.23.217.4 at 2019-04-16 18:52:39 +0000
+Cannot render console from 138.23.217.4! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by WelcomeController#index as HTML
+  Rendering welcome/index.html.erb within layouts/application
+  Rendered welcome/index.html.erb within layouts/application (0.7ms)
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mProfile Load (0.1ms)[0m  [1m[34mSELECT  "profiles".* FROM "profiles" WHERE "profiles"."user_id" = ? LIMIT ?[0m  [["user_id", 1], ["LIMIT", 1]]
+  Rendered layouts/_header.html.erb (20.0ms)
+  Rendered layouts/_flash.html.erb (0.3ms)
+Completed 200 OK in 57ms (Views: 54.3ms | ActiveRecord: 1.3ms)
+
+
+Started GET "/" for 138.23.217.4 at 2019-04-16 18:52:40 +0000
+Cannot render console from 138.23.217.4! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by WelcomeController#index as HTML
+  Rendering welcome/index.html.erb within layouts/application
+  Rendered welcome/index.html.erb within layouts/application (1.4ms)
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mProfile Load (0.1ms)[0m  [1m[34mSELECT  "profiles".* FROM "profiles" WHERE "profiles"."user_id" = ? LIMIT ?[0m  [["user_id", 1], ["LIMIT", 1]]
+  Rendered layouts/_header.html.erb (2.8ms)
+  Rendered layouts/_flash.html.erb (0.3ms)
+Completed 200 OK in 41ms (Views: 39.8ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/profiles?utf8=%E2%9C%93&search_term=skills" for 138.23.217.4 at 2019-04-16 18:52:44 +0000
+Cannot render console from 138.23.217.4! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by ProfilesController#index as HTML
+  Parameters: {"utf8"=>"✓", "search_term"=>"skills"}
+Completed 500 Internal Server Error in 1ms (ActiveRecord: 0.0ms)
+
+
+  
+ActiveRecord::PreparedStatementInvalid (wrong number of bind variables (1 for 2) in: interest LIKE ? or skills LIKE ?):
+  
+app/controllers/profiles_controller.rb:9:in `index'
+Started GET "/" for 138.23.217.4 at 2019-04-16 18:55:16 +0000
+Cannot render console from 138.23.217.4! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by WelcomeController#index as HTML
+  Rendering welcome/index.html.erb within layouts/application
+  Rendered welcome/index.html.erb within layouts/application (0.7ms)
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mProfile Load (0.1ms)[0m  [1m[34mSELECT  "profiles".* FROM "profiles" WHERE "profiles"."user_id" = ? LIMIT ?[0m  [["user_id", 1], ["LIMIT", 1]]
+  Rendered layouts/_header.html.erb (23.3ms)
+  Rendered layouts/_flash.html.erb (0.3ms)
+Completed 200 OK in 61ms (Views: 58.8ms | ActiveRecord: 1.4ms)
+
+
+Started GET "/profiles?utf8=%E2%9C%93&search_term=interest" for 138.23.217.4 at 2019-04-16 18:55:19 +0000
+Cannot render console from 138.23.217.4! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by ProfilesController#index as HTML
+  Parameters: {"utf8"=>"✓", "search_term"=>"interest"}
+  Rendering profiles/index.html.erb within layouts/application
+  [1m[36mProfile Load (0.4ms)[0m  [1m[34mSELECT "profiles".* FROM "profiles" WHERE (interest LIKE '%interest%' or skills LIKE)[0m
+  Rendered profiles/index.html.erb within layouts/application (3.6ms)
+Completed 500 Internal Server Error in 7ms (ActiveRecord: 0.4ms)
+
+
+  
+ActionView::Template::Error (SQLite3::SQLException: near ")": syntax error: SELECT "profiles".* FROM "profiles" WHERE (interest LIKE '%interest%' or skills LIKE)):
+    16:     </tr>
+    17:   </thead>
+    18:   <tbody>
+    19:     <% @profiles.each do |profile| %>
+    20:       <tr>
+    21:         <td><%= link_to profile.id, profile_path(profile) %></td>
+    22:         <td><%= profile.name %></td>
+  
+app/views/profiles/index.html.erb:19:in `_app_views_profiles_index_html_erb__1986960636553928901_70082966006540'
+Started GET "/" for 138.23.217.4 at 2019-04-16 18:55:50 +0000
+Cannot render console from 138.23.217.4! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by WelcomeController#index as HTML
+  Rendering welcome/index.html.erb within layouts/application
+  Rendered welcome/index.html.erb within layouts/application (0.7ms)
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mProfile Load (0.1ms)[0m  [1m[34mSELECT  "profiles".* FROM "profiles" WHERE "profiles"."user_id" = ? LIMIT ?[0m  [["user_id", 1], ["LIMIT", 1]]
+  Rendered layouts/_header.html.erb (22.5ms)
+  Rendered layouts/_flash.html.erb (0.4ms)
+Completed 200 OK in 60ms (Views: 57.3ms | ActiveRecord: 1.3ms)
+
+
+Started GET "/profiles?utf8=%E2%9C%93&search_term=interest" for 138.23.217.4 at 2019-04-16 18:55:52 +0000
+Cannot render console from 138.23.217.4! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by ProfilesController#index as HTML
+  Parameters: {"utf8"=>"✓", "search_term"=>"interest"}
+  Rendering profiles/index.html.erb within layouts/application
+  [1m[36mProfile Load (0.2ms)[0m  [1m[34mSELECT "profiles".* FROM "profiles" WHERE (interest LIKE '%interest%')[0m
+  Rendered profiles/index.html.erb within layouts/application (4.4ms)
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mProfile Load (0.1ms)[0m  [1m[34mSELECT  "profiles".* FROM "profiles" WHERE "profiles"."user_id" = ? LIMIT ?[0m  [["user_id", 1], ["LIMIT", 1]]
+  Rendered layouts/_header.html.erb (2.7ms)
+  Rendered layouts/_flash.html.erb (0.3ms)
+Completed 200 OK in 44ms (Views: 42.7ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/" for 138.23.217.4 at 2019-04-16 18:56:22 +0000
+Cannot render console from 138.23.217.4! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by WelcomeController#index as HTML
+  Rendering welcome/index.html.erb within layouts/application
+  Rendered welcome/index.html.erb within layouts/application (0.7ms)
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mProfile Load (0.1ms)[0m  [1m[34mSELECT  "profiles".* FROM "profiles" WHERE "profiles"."user_id" = ? LIMIT ?[0m  [["user_id", 1], ["LIMIT", 1]]
+  Rendered layouts/_header.html.erb (22.6ms)
+  Rendered layouts/_flash.html.erb (0.3ms)
+Completed 200 OK in 59ms (Views: 56.3ms | ActiveRecord: 1.4ms)
+
+
+Started GET "/profiles?utf8=%E2%9C%93&search_term=skills" for 138.23.217.4 at 2019-04-16 18:56:26 +0000
+Cannot render console from 138.23.217.4! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by ProfilesController#index as HTML
+  Parameters: {"utf8"=>"✓", "search_term"=>"skills"}
+Completed 500 Internal Server Error in 1ms (ActiveRecord: 0.0ms)
+
+
+  
+ArgumentError (wrong number of arguments (given 0, expected 1)):
+  
+app/controllers/profiles_controller.rb:9:in `index'
+Started GET "/profiles?utf8=%E2%9C%93&search_term=skills" for 138.23.217.4 at 2019-04-16 18:58:03 +0000
+Cannot render console from 138.23.217.4! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by ProfilesController#index as HTML
+  Parameters: {"utf8"=>"✓", "search_term"=>"skills"}
+Completed 500 Internal Server Error in 3ms (ActiveRecord: 0.0ms)
+
+
+  
+ArgumentError (wrong number of arguments (given 0, expected 1)):
+  
+app/controllers/profiles_controller.rb:11:in `index'
+Started GET "/profiles?utf8=%E2%9C%93&search_term=skills" for 138.23.217.4 at 2019-04-16 18:58:14 +0000
+Cannot render console from 138.23.217.4! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by ProfilesController#index as HTML
+  Parameters: {"utf8"=>"✓", "search_term"=>"skills"}
+  Rendering profiles/index.html.erb within layouts/application
+  [1m[36mProfile Load (0.1ms)[0m  [1m[34mSELECT "profiles".* FROM "profiles" WHERE (interest LIKE 'skills')[0m
+  Rendered profiles/index.html.erb within layouts/application (3.9ms)
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mProfile Load (0.1ms)[0m  [1m[34mSELECT  "profiles".* FROM "profiles" WHERE "profiles"."user_id" = ? LIMIT ?[0m  [["user_id", 1], ["LIMIT", 1]]
+  Rendered layouts/_header.html.erb (39.4ms)
+  Rendered layouts/_flash.html.erb (0.5ms)
+Completed 200 OK in 103ms (Views: 98.3ms | ActiveRecord: 1.6ms)
+
+
+Started GET "/profiles?utf8=%E2%9C%93&search_term=skills" for 138.23.217.4 at 2019-04-16 18:59:17 +0000
+Cannot render console from 138.23.217.4! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by ProfilesController#index as HTML
+  Parameters: {"utf8"=>"✓", "search_term"=>"skills"}
+  Rendering profiles/index.html.erb within layouts/application
+  [1m[36mProfile Load (0.2ms)[0m  [1m[34mSELECT "profiles".* FROM "profiles" WHERE (interest LIKE '%skills%')[0m
+  Rendered profiles/index.html.erb within layouts/application (6.3ms)
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mProfile Load (0.1ms)[0m  [1m[34mSELECT  "profiles".* FROM "profiles" WHERE "profiles"."user_id" = ? LIMIT ?[0m  [["user_id", 1], ["LIMIT", 1]]
+  Rendered layouts/_header.html.erb (20.1ms)
+  Rendered layouts/_flash.html.erb (0.4ms)
+Completed 200 OK in 125ms (Views: 117.9ms | ActiveRecord: 1.5ms)
+
+
+Started GET "/" for 138.23.217.4 at 2019-04-16 18:59:20 +0000
+Cannot render console from 138.23.217.4! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by WelcomeController#index as HTML
+  Rendering welcome/index.html.erb within layouts/application
+  Rendered welcome/index.html.erb within layouts/application (0.7ms)
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mProfile Load (0.1ms)[0m  [1m[34mSELECT  "profiles".* FROM "profiles" WHERE "profiles"."user_id" = ? LIMIT ?[0m  [["user_id", 1], ["LIMIT", 1]]
+  Rendered layouts/_header.html.erb (3.2ms)
+  Rendered layouts/_flash.html.erb (0.3ms)
+Completed 200 OK in 41ms (Views: 40.2ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/profiles?utf8=%E2%9C%93&search_term=interest" for 138.23.217.4 at 2019-04-16 18:59:22 +0000
+Cannot render console from 138.23.217.4! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by ProfilesController#index as HTML
+  Parameters: {"utf8"=>"✓", "search_term"=>"interest"}
+  Rendering profiles/index.html.erb within layouts/application
+  [1m[36mProfile Load (0.2ms)[0m  [1m[34mSELECT "profiles".* FROM "profiles" WHERE (interest LIKE '%interest%')[0m
+  Rendered profiles/index.html.erb within layouts/application (4.5ms)
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mProfile Load (0.1ms)[0m  [1m[34mSELECT  "profiles".* FROM "profiles" WHERE "profiles"."user_id" = ? LIMIT ?[0m  [["user_id", 1], ["LIMIT", 1]]
+  Rendered layouts/_header.html.erb (2.9ms)
+  Rendered layouts/_flash.html.erb (0.4ms)
+Completed 200 OK in 46ms (Views: 43.8ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/profiles/4" for 138.23.217.4 at 2019-04-16 18:59:32 +0000
+Cannot render console from 138.23.217.4! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by ProfilesController#show as HTML
+  Parameters: {"id"=>"4"}
+  [1m[36mProfile Load (0.2ms)[0m  [1m[34mSELECT  "profiles".* FROM "profiles" WHERE "profiles"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  Rendering profiles/show.html.erb within layouts/application
+  [1m[36mActiveStorage::Attachment Load (0.1ms)[0m  [1m[34mSELECT  "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = ? AND "active_storage_attachments"."record_type" = ? AND "active_storage_attachments"."name" = ? LIMIT ?[0m  [["record_id", 4], ["record_type", "Profile"], ["name", "resume"], ["LIMIT", 1]]
+  [1m[36mActiveStorage::Blob Load (0.1ms)[0m  [1m[34mSELECT  "active_storage_blobs".* FROM "active_storage_blobs" WHERE "active_storage_blobs"."id" = ? LIMIT ?[0m  [["id", 7], ["LIMIT", 1]]
+  Rendered profiles/show.html.erb within layouts/application (25.5ms)
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mProfile Load (0.1ms)[0m  [1m[34mSELECT  "profiles".* FROM "profiles" WHERE "profiles"."user_id" = ? LIMIT ?[0m  [["user_id", 1], ["LIMIT", 1]]
+  Rendered layouts/_header.html.erb (3.1ms)
+  Rendered layouts/_flash.html.erb (0.3ms)
+Completed 200 OK in 87ms (Views: 84.0ms | ActiveRecord: 1.6ms)
+
+
+Started GET "/" for 138.23.217.4 at 2019-04-16 18:59:34 +0000
+Cannot render console from 138.23.217.4! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by WelcomeController#index as HTML
+  Rendering welcome/index.html.erb within layouts/application
+  Rendered welcome/index.html.erb within layouts/application (0.7ms)
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mProfile Load (0.1ms)[0m  [1m[34mSELECT  "profiles".* FROM "profiles" WHERE "profiles"."user_id" = ? LIMIT ?[0m  [["user_id", 1], ["LIMIT", 1]]
+  Rendered layouts/_header.html.erb (3.0ms)
+  Rendered layouts/_flash.html.erb (0.3ms)
+Completed 200 OK in 40ms (Views: 39.3ms | ActiveRecord: 0.2ms)
+
+
