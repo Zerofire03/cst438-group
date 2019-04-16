@@ -14,8 +14,8 @@
   <dd><%= @profile.interest %></dd>
   <dt><strong><%= model_class.human_attribute_name(:skills) %>:</strong></dt>
   <dd><%= @profile.skills %></dd>
-  <dt><strong><%= model_class.human_attribute_name(:resume) %>:</strong></dt>
-  <dd><%= link_to @profile.resume.filename, @profile.resume, target: :blank %></dd>
+      <dt><strong><%= model_class.human_attribute_name(:resume) %>:</strong></dt>
+      <dd><%= link_to @profile.resume.filename, @profile.resume, target: :blank %></dd>
 </dl>
 
 <%= link_to t('.back', :default => t("helpers.links.back")),
