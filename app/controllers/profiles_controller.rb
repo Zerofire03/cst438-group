@@ -4,7 +4,12 @@ class ProfilesController < ApplicationController
   # GET /profiles
   # GET /profiles.json
   def index
-    @profiles = Profile.all
+   # @profiles = Profile.all
+    if params[:search_term]
+      @profiles = Profile.where('interest LIKE ?', "%#{params[:search_term]}%")
+    else
+      @profiles = Profile.all
+    end
   end
 
   # GET /profiles/1
@@ -69,7 +74,7 @@ class ProfilesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def profile_params
-      params.require(:profile).permit(:name, :address, :phone_no, :interest, :skills, :resume)
+      params.require(:profile).permit(:name, :address, :phone_no, :interest, :skills, :resume, :search_term)
       #params.require(:profile).permit(:name, :address, :phone_no, :interest, :skills)
     end
 end

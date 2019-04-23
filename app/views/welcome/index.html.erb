@@ -1,2 +1,7 @@
 <h1>Volunteer Skill Share</h1>
 <p>Welcome to the Volunteer Skill Share App</p>
+
+<%= form_tag(profiles_path, method: :get) do %>
+    Search Volunteers: <%=text_field_tag :search_term, params[:search_term] %>
+    <%= submit_tag 'Search', name: nil %>
+<% end %>
