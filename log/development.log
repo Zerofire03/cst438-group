@@ -869,3 +869,40 @@ Processing by WelcomeController#index as HTML
 Completed 200 OK in 40ms (Views: 39.3ms | ActiveRecord: 0.2ms)
 
 
+DEPRECATION WARNING: Leaving `ActiveRecord::ConnectionAdapters::SQLite3Adapter.represent_boolean_as_integer`
+set to false is deprecated. SQLite databases have used 't' and 'f' to serialize
+boolean values and must have old data converted to 1 and 0 (its native boolean
+serialization) before setting this flag to true. Conversion can be accomplished
+by setting up a rake task which runs
+
+  ExampleModel.where("boolean_column = 't'").update_all(boolean_column: 1)
+  ExampleModel.where("boolean_column = 'f'").update_all(boolean_column: 0)
+
+for all models and all boolean columns, after which the flag must be set to
+true by adding the following to your application.rb file:
+
+  Rails.application.config.active_record.sqlite3.represent_boolean_as_integer = true
+ (called from <top (required)> at /home/ec2-user/environment/github/Project/cst438-group/app/models/application_record.rb:1)
+Started GET "/" for 71.95.53.130 at 2019-04-23 03:48:29 +0000
+Cannot render console from 71.95.53.130! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by WelcomeController#index as HTML
+  Rendering welcome/index.html.erb within layouts/application
+  Rendered welcome/index.html.erb within layouts/application (1.2ms)
+  Rendered layouts/_header.html.erb (3.9ms)
+  Rendered layouts/_flash.html.erb (0.4ms)
+Completed 200 OK in 338ms (Views: 331.9ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/profiles?utf8=%E2%9C%93&search_term=foo" for 71.95.53.130 at 2019-04-23 03:48:32 +0000
+Cannot render console from 71.95.53.130! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by ProfilesController#index as HTML
+  Parameters: {"utf8"=>"✓", "search_term"=>"foo"}
+  Rendering profiles/index.html.erb within layouts/application
+  [1m[36mProfile Load (0.2ms)[0m  [1m[34mSELECT "profiles".* FROM "profiles" WHERE (interest LIKE '%foo%')[0m
+  Rendered profiles/index.html.erb within layouts/application (791.6ms)
+  Rendered layouts/_header.html.erb (0.9ms)
+  Rendered layouts/_flash.html.erb (0.3ms)
+Completed 200 OK in 836ms (Views: 829.5ms | ActiveRecord: 0.9ms)
+
+
